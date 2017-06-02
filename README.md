@@ -18,15 +18,15 @@ status = epos_write_object(hdl, uint16(hex2dec('2062')), uint8(0), uint8(0), uin
 
 - Read Position
 
-- Operation Index:
-status = epos_write_object(hdl, uint16(hex2dec('6060')), uint8(0), uint8(0), uint32(3))
+- Operation Index POSITION MODE
+status = epos_write_object(hdl, uint16(hex2dec('6060')), uint8(0), uint8(0), uint32(01))
 
 Target Position:
-status = epos_write_object(hdl, uint16(hex2dec('607a')), uint8(0), uint8(0), uint32(2000))
+status = epos_write_object(hdl, uint16(hex2dec('607a')), uint8(0), uint8(0), uint32(1000000000))
 
 
-- Control:
-relative position
+- Controlword
+start positioning
 status = epos_write_object(hdl, uint16(hex2dec('6040')), uint8(0), uint8(0), uint32(hex2dec('7f')))
 
 
@@ -38,3 +38,12 @@ status = epos_write_object(hdl, uint16(hex2dec('6081')), uint8(0), uint8(0), uin
 
 Profile Accelaration [10000 rpm/s]
 status = epos_write_object(hdl, uint16(hex2dec('6083')), uint8(0), uint8(0), uint32(hex2dec('60')))
+
+QuickStop Desaceleration [[10000 rpm/s]
+status = epos_write_object(hdl, uint16(hex2dec('6085')), uint8(0), uint8(0), uint32(hex2dec('1')))
+
+
+
+
+
+
